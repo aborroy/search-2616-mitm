@@ -1,0 +1,110 @@
+Agreement of Purchase and Sale of Shares by Shareholders
+          © Copyright Envision Corporation. 2002. All rights reserved. Protected by the copyright laws of the United States & Canada and by international treaties. IT IS ILLEGAL AND STRICTLY PROHIBITED TO DISTRIBUTE, PUBLISH, OFFER FOR SALE, LICENSE OR SUBLICENSE, GIVE OR DISCLOSE TO ANY OTHER PARTY, THIS PRODUCT IN HARD COPY OR DIGITAL FORM. ALL OFFENDERS WILL BE SUED IN A COURT OF LAW.
+
+
+
+© Copyright Envision Corporation. 2002. All rights reserved. Protected by the copyright laws of the United States and Canada and by international treaties. IT IS ILLEGAL AND STRICTLY PROHIBITED TO DISTRIBUTE, PUBLISH, OFFER FOR SALE, LICENSE OR SUBLICENSE, GIVE OR DISCLOSE TO ANY OTHER PARTY, THIS PRODUCT IN HARD COPY OR DIGITAL FORM. ALL OFFENDERS WILL AUTOMATICALLY BE SUED IN A COURT OF LAW.
+This Agreement of Purchase and Sale of Shares by Shareholders is made and entered into as of the date of grant set forth below.
+
+
+BETWEEN:	{{ template_generator.getName() }} (the "Transferor”), a corporation, organization with complete address.
+
+
+
+AND:	{{ template_generator.getName() }} (the " Purchaser”), with complete address.
+
+WHEREAS the parties hereto, other than the Corporation, together own, directly or indirectly, all of the issued and outstanding shares in the capital of the Corporation as of the date hereof;
+
+AND WHEREAS the parties hereto wish to record their agreement as to the manner in which the Corporation’s affairs are to be conducted and to agree upon the terms on which the securities of the Corporation, now or hereafter outstanding and held by them, will be held, transferred and voted;
+
+RECITALS:
+The Shareholders and the Company believe it is in their and the Company's best interests to restrict the free transferability of the Shares to assure continuity in the control and management of the corporation.
+
+PURCHASE PRICE:
+The purchase price payable for the Shares is the total of the amounts allocated among the Shares as follows: for all the {{ template_generator.getInt() }} shares {{ template_generator.getMoneyAmount() }}$.
+
+TERMS OF PAYMENT:
+	•	The Vendor acknowledges receiving a cheque for {{ template_generator.getMoneyAmount() }} $ from the Purchaser on execution of this agreement to be held by the Vendor as a deposit on account of the purchase price of the Shares and as security for the Purchaser's due performance of this agreement.
+	•	The Purchaser shall pay the balance of the purchase price of the Shares by certified cheque on closing.
+	•	It is understood and agreed that the purchase price of the Shares is based on the financial position of the Corporation shown in the balance sheet produced by the Vendor for the Corporation and appended as Schedule A. If the net book value of the Corporation as of the date of closing is less than [%] of the net book value of the Corporation, the Vendor shall refund the Purchaser the dollar value difference within a reasonable time of receipt of written notice of the difference. For the purposes of this paragraph, the net book value of the Corporation means the dollar book value of the assets of the Corporation minus the dollar book value of the liabilities, other than for shareholder equity, of the Corporation determined in accordance with generally accepted accounting principles.
+
+
+
+© Copyright Envision Corporation. 2002. All rights reserved. Protected by the copyright laws of the United States and Canada and by international treaties. IT IS ILLEGAL AND STRICTLY PROHIBITED TO DISTRIBUTE, PUBLISH, OFFER FOR SALE, LICENSE OR SUBLICENSE, GIVE OR DISCLOSE TO ANY OTHER PARTY, THIS PRODUCT IN HARD COPY OR DIGITAL FORM. ALL OFFENDERS WILL AUTOMATICALLY BE SUED IN A COURT OF LAW.
+          © Copyright Envision Corporation. 2002. All rights reserved. Protected by the copyright laws of the United States & Canada and by international treaties. IT IS ILLEGAL AND STRICTLY PROHIBITED TO DISTRIBUTE, PUBLISH, OFFER FOR SALE, LICENSE OR SUBLICENSE, GIVE OR DISCLOSE TO ANY OTHER PARTY, THIS PRODUCT IN HARD COPY OR DIGITAL FORM. ALL OFFENDERS WILL BE SUED IN A COURT OF LAW.
+
+The Seller warrants to the Buyer that he is the beneficial owner of the shares and that the same situation will apply at completion. In the interim period, Clause 3.3 makes it clear that the Seller will not do anything to prejudice the business of the Company. Clause 3.4 provides for an optional indemnity to be given to Buyer by Seller in the event that Seller is in breach of the warranties.
+
+GENERAL RESTRICTION ON TRANSFER:
+	•	No Share or any interest therein shall be validly sold, assigned, awarded, pledged, encumbered, confirmed, or otherwise transferred, for consideration or otherwise, whether voluntarily, involuntarily, or by operation of law (collectively, a
+	•	"Transfer"), except in accordance with the provisions of this Agreement.
+	•	A purported transferee of a Transfer not made in accordance with the provisions of this Agreement shall not be recognized as a shareholder of the Company for any purpose whatsoever.
+	•	A Transfer or attempt to effect a Transfer subject to the provisions of this Agreement shall be deemed to occur whenever any interest in any Share is transferred or is attempted to be transferred, voluntarily, involuntarily, or by operation of law, irrespective of whether any change in the record ownership of the Shares occurs.
+	•	Notwithstanding anything in this Agreement to the contrary, a Shareholder may effect a Transfer of all or any portion of his or her Shares to the Company.
+	•	Notwithstanding anything in this Agreement to the contrary, a Shareholder may, during his life, effect a Transfer of all or any portion of his or her Shares to his or her spouse, or his or her lineal ancestors or descendants, or a trustee of a trust for the exclusive benefit of such spouse or ancestors or descendants (the "Permitted Transferees," who would then become "Shareholders"), provided that the transferee shall execute a "Consent to be Bound" by this Agreement.
+
+OFFER NOTICE:
+If any Shareholder (the "Transferor") desires to effect a Transfer of any or all of his or her Shares to any person other than a Permitted Transferee or the Company pursuant to a bona fide written offer, the Transferor shall give notice to the Company (an "Offer Notice") specifying the name, address and telephone number of the proposed transferee, the number of Shares proposed to be transferred (the "Offered Shares"), the price per Share proposed to be paid by the proposed transferee for the Offered Shares (the "Offered Price"), and all other terms and conditions of the proposed Transfer.
+
+OFFER TO SELL:
+Giving an Offer Notice to the Company shall constitute an offer by the Transferor on the date the Offer Notice is received by the Company (the "Offer Date") to sell the Offered Shares to the Company and/or the other Shareholders (the "Remaining Shareholders") at a purchase price per Share (the "Purchase Price") equal to the Offered Price. If the Offered Shares are proposed to be sold for consideration other than solely cash, the Offered Price shall be deemed to be the sum of the fair market value of the consideration other than cash offered for the Offered Shares as determined in good faith by the Board of Directors of the Company.
+
+SHARE PURCHASE PROCEDURES:
+Each purchase of Shares by the Company and/or the Remaining Shareholders pursuant to this shall be made as follows:
+	•	The Company shall have the first right to purchase any or all of the Offered Shares.  It shall exercise this right by giving written notice to the Transferor (the "Company Acceptance Notice") within forty-five (45) days (the "Company Acceptance Period") after the Offer Date, stating the number of Offered Shares that the Company agrees to purchase.
+	•	Delivery of the Company Acceptance Notice to the Transferor shall create a binding contract between the Company and the Transferor for the purchase and sale, at the Purchase Price and on the terms and conditions of the number of Shares specified in the Company Acceptance Notice.
+	•	No later than ten (10) days after the expiration of the Company Acceptance Period, the Company shall provide each of the Remaining Shareholders with a copy of the Offer Notice and inform them of the number of Offered Shares the Company has agreed to purchase.
+	•	If the Company does not exercise its right to purchase all of the Offered Shares, each of the Remaining Shareholders shall then have the right to purchase those Offered Shares that the Company has elected not to purchase (the "Remaining Offered Shares") which are allocated to the Shareholder Within forty-five (45) days after the date.
+
+SHARE CERTIFICATES:
+	•	Upon execution of this Agreement each Shareholder shall endorse stock assignment forms separate from the certificates representing his or her shares and shall deposit the assignment forms and certificates with the secretary of the Company.
+	•	Notwithstanding such endorsement and deposit, every Shareholder shall have the right to vote his or her shares and receive the dividends paid on them until the shares are sold or transferred as provided in this Agreement.
+	•	None of the shares shall be transferred, encumbered, or in any way alienated except under the terms of this Agreement.
+
+COMPLETION:
+This deals with the mechanics of the transaction, the date when the shares will be transferred and resignation letters from Seller's nominated directors (or, where Seller is a director, his resignation) will be handed over. Payment will also be made for the shares at this point provides for payment of interest in the event that all or part of the purchase price is paid late.
+
+PAYMENT AND TRANSFER OF SHARES.
+	•	This Agreement Shareholder or be, as soon as event. The consideration for shares transferred under shall be paid to the transferring Minority Shareholder or its representative or successor, as the case may practicable after the occurrence of the triggering
+	•	The payment of the purchase price of shares purchased under this Agreement (other than purchases funded in whole or in part by life insurance proceeds as provided in the preceding subparagraph) shall be cash or, by election of the purchasing Shareholders and/or the Company, 25% down, remainder in three equal annual installments with interest on the unpaid balance at the "Applicable Federal Rate: as announced from time to time by the Treasury Department for obligations of the same duration.
+	•	After payment has been made or otherwise provided for under this Agreement, the secretary of the Company shall cause the certificates representing the purchase shares to be properly endorsed.
+
+SEVERABILITY:
+If, in any jurisdiction, any provision of this Agreement or its application to any Party or circumstance is restricted, prohibited or unenforceable, such provision is, as to such jurisdiction, ineffective only to the extent of such restriction, prohibition or unenforceability without invalidating the remaining provisions of this Agreement and without affecting the validity or enforceability of such provision in any other jurisdiction or without affecting its application to other Parties or circumstances.
+
+APPLICABLE LAW:
+The governing law of the agreement is English law and the English courts are to have exclusive jurisdiction in relation to any disputes arising from the agreement.
+
+ATTORNEYS' FEES:
+In the event it is necessary for any party to engage an attorney in order to enforce the terms of this Agreement, whether or not a lawsuit or arbitration is commenced, said party shall, in addition to any other relief, be entitled to recover from the party in default reasonable attorneys' fees and costs, including any on appeal.
+
+TERMINATION OF AGREEMENT:
+	•	If the Buyer and Seller are the two parties to a Shareholders’ Agreement, this clause will be applicable and the effect will be for the Shareholders' Agreement to be terminated on completion.
+	•	Both parties have carefully read the foregoing and fully understand its contents. They acknowledge that their signing of this consent and release form is a voluntary act on their part and that they have not been coerced into signing this document by anyone.
+
+NOTICES:
+Any and all notices or other communications required or permitted by this Agreement or by law to be served on or given to any party hereto by any other party shall be in writing and shall be deemed duly served and given when personally delivered to the party to whom it is directed, or in lieu of such personal service three (3) days after deposit in the States mail, first class postage prepaid, addressed to the party at the address opposite such party's name on the signature page to this Agreement or at such other address as a party may designate in writing.
+
+
+
+IN WITNESS WHEREOF, the parties hereto seals the Agreement written above. Agreement signed by both parties in the presence of Stockholders.
+
+
+Transferor										Purchaser
+
+
+By:	    										By:
+
+
+Name:  										Name:
+
+
+
+Company
+
+By:
+
+
+Name:
+
+

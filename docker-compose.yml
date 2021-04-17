@@ -1,0 +1,170 @@
+version: "2"
+
+services:
+    alfresco:
+        build:
+          context: ./alfresco
+          args:
+            ALFRESCO_TAG: ${ALFRESCO_TAG}
+        mem_limit: 4096m
+        depends_on:
+            - transform-core-aio
+            - activemq
+            - postgres
+        environment:
+            JAVA_TOOL_OPTIONS: "
+                -Dencryption.keystore.type=JCEKS
+                -Dencryption.cipherAlgorithm=DESede/CBC/PKCS5Padding
+                -Dencryption.keyAlgorithm=DESede
+                -Dencryption.keystore.location=/usr/local/tomcat/shared/classes/alfresco/extension/keystore/keystore
+                -Dmetadata-keystore.password=mp6yc0UD9e
+                -Dmetadata-keystore.aliases=metadata
+                -Dmetadata-keystore.metadata.password=oKIWzVdEdA
+                -Dmetadata-keystore.metadata.algorithm=DESede
+                "
+            JAVA_OPTS : "
+                -Ddb.driver=org.postgresql.Driver
+                -Ddb.username=alfresco
+                -Ddb.password=alfresco
+                -Ddb.driver=org.postgresql.Driver
+                -Ddb.url=jdbc:postgresql://postgres:5432/alfresco
+                -Dsolr.host=solr6
+                -Dsolr.port=8983
+                -Dsolr.secureComms=none
+                -Dsolr.baseUrl=/solr
+                -Dindex.subsystem.name=noindex
+                -Dalfresco.host=${SERVER_NAME}
+                -Dalfresco.port=8080
+                -Dalfresco.protocol=http
+                -Dshare.host=${SERVER_NAME}
+                -Dshare.port=8080
+                -Dshare.protocol=http
+                -Daos.baseUrlOverwrite=http://${SERVER_NAME}/alfresco/aos
+                -Dmessaging.broker.url=\"failover:(nio://activemq:61616)?timeout=3000&jms.useCompression=true\"
+                -Ddeployment.method=DOCKER_COMPOSE
+                -Dcsrf.filter.enabled=false
+                -Dopencmis.server.override=true
+                -Dopencmis.server.value=http://${SERVER_NAME}:8080
+                -DlocalTransform.core-aio.url=http://transform-core-aio:8090/
+                -Dcsrf.filter.enabled=false
+                -Dalfresco.restApi.basicAuthScheme=true
+                -Dauthentication.protection.enabled=false
+                -XX:+UseG1GC -XX:+UseStringDeduplication
+                -Dgoogledocs.enabled=false
+                -Xms4096m -Xmx4096m
+                -Ds3.accessKey=${S3_ACCESS_KEY}
+                -Ds3.secretKey=${S3_SECRET_KEY}
+                -Ds3.bucketName=${S3_BUCKET_NAME}
+                -Ds3.bucketLocation=${S3_BUCKET_LOCATION}
+                -Dconnector.s3.objectNamePrefix=${S3_OBJECT_NAME_PREFIX}
+                -DcontentPropertyRestrictions.enabled=false
+                -Dbulk.object.default.batch_size=25
+                -Dbulk.object.default.pool_size=4
+                -Dbulk.object.content.url.check.mode=FALSE
+                -Dalfresco.cluster.enabled=false
+                -XX:MinRAMPercentage=50 -XX:MaxRAMPercentage=80
+            "
+        volumes:
+            - ./logs/alfresco:/usr/local/tomcat/logs
+        ports:
+            - 8080:9999
+
+    transform-core-aio:
+        image: alfresco/alfresco-transform-core-aio:${TRANSFORM_ENGINE_TAG}
+        mem_limit: 1536m
+        environment:
+            JAVA_OPTS: " -XX:MinRAMPercentage=50 -XX:MaxRAMPercentage=80"
+
+    postgres:
+        image: postgres:${POSTGRES_TAG}
+        mem_limit: 2048m
+        environment:
+            - POSTGRES_PASSWORD=alfresco
+            - POSTGRES_USER=alfresco
+            - POSTGRES_DB=alfresco
+        command: "
+            postgres
+              -c max_connections=200
+              -c logging_collector=on
+              -c log_min_messages=LOG
+              -c log_directory=/var/log/postgresql"
+        ports:
+            - 5432:5432
+        volumes:
+            - ./data/postgres-data:/var/lib/postgresql/data
+            - ./logs/postgres:/var/log/postgresql
+
+    # solr6:
+    #     build:
+    #       context: ./search
+    #       args:
+    #         SEARCH_TAG: 2.0.0
+    #         SOLR_HOSTNAME: solr6
+    #         ALFRESCO_HOSTNAME: alfresco-proxy
+    #         ALFRESCO_COMMS: none
+    #     mem_limit: 1024m
+    #     depends_on:
+    #         - alfresco
+    #     environment:
+    #         #Solr needs to know how to register itself with Alfresco
+    #         SOLR_ALFRESCO_HOST: "alfresco-proxy"
+    #         SOLR_ALFRESCO_PORT: "8080"
+    #         #Alfresco needs to know how to call solr
+    #         SOLR_SOLR_HOST: "solr6"
+    #         SOLR_SOLR_PORT: "8983"
+    #         #Create the default alfresco and archive cores
+    #         SOLR_CREATE_ALFRESCO_DEFAULTS: "alfresco"
+    #         SOLR_JAVA_MEM: "-Xms1024m -Xmx1024m"
+    #     volumes:
+    #         - ./data/solr-data-200:/opt/alfresco-search-services/data
+    #     ports:
+    #         - 8092:8983
+
+    # solr614:
+    #     build:
+    #       context: ./search
+    #       args:
+    #         SEARCH_TAG: 1.4.3.3
+    #         SOLR_HOSTNAME: solr614
+    #         ALFRESCO_HOSTNAME: alfresco-proxy
+    #         ALFRESCO_COMMS: none
+    #     mem_limit: 384m
+    #     depends_on:
+    #         - alfresco
+    #     environment:
+    #         #Solr needs to know how to register itself with Alfresco
+    #         SOLR_ALFRESCO_HOST: "alfresco-proxy"
+    #         SOLR_ALFRESCO_PORT: "8080"
+    #         #Alfresco needs to know how to call solr
+    #         SOLR_SOLR_HOST: "solr614"
+    #         SOLR_SOLR_PORT: "8983"
+    #         #Create the default alfresco and archive cores
+    #         SOLR_CREATE_ALFRESCO_DEFAULTS: "alfresco"
+    #         SOLR_JAVA_MEM: "-Xms384m -Xmx384m"
+    #     volumes:
+    #         - ./data/solr-data-14/data:/opt/alfresco-search-services/data
+    #         - ./data/solr-data-14/contenstore:/opt/alfresco-search-services/contentstore
+    #     ports:
+    #         - 8091:8983
+
+    activemq:
+        image: alfresco/alfresco-activemq:${ACTIVEMQ_TAG}
+        mem_limit: 512m
+        ports:
+            - 8161:8161 # Web Console
+            - 5672:5672 # AMQP
+            - 61616:61616 # OpenWire
+            - 61613:61613 # STOM
+
+    # alfresco-proxy:
+    #     image: mitmproxy/mitmproxy
+    #     depends_on:
+    #         - alfresco
+    #     command: "
+    #         mitmdump -s /tmp/send_response.py --mode reverse:http://alfresco:9999/ \
+    #                  --set termlog_verbosity=error --set flow_detail=0
+    #         "
+    #     environment:
+    #         REPO_URL: alfresco
+    #     volumes:
+    #         - ./config/mitproxy:/tmp

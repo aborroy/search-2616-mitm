@@ -1,0 +1,45 @@
+Car Lease Agreement Template
+Seller’s Name: {{ template_generator.getName() }}
+Address:
+{{ template_generator.getStreetAddress() }}
+{{ template_generator.getCity() }}
+City, State, ZIP: {{ template_generator.getState() }}
+Phone: {{ template_generator.getPhoneNumber() }}
+
+Seller’s Name: {{ template_generator.getName() }}
+Address:
+{{ template_generator.getStreetAddress() }}
+{{ template_generator.getCity() }}
+City, State, ZIP: {{ template_generator.getState() }}
+Phone: {{ template_generator.getPhoneNumber() }}
+
+Buyer’s Name: {{ template_generator.getName() }}
+Address:
+{{ template_generator.getStreetAddress() }}
+{{ template_generator.getCity() }}
+City, State, ZIP: {{ template_generator.getState() }}
+Phone: {{ template_generator.getPhoneNumber() }}
+Buyer’s Name: {{ template_generator.getName() }}
+Address:
+{{ template_generator.getStreetAddress() }}
+{{ template_generator.getCity() }}
+City, State, ZIP: {{ template_generator.getState() }}
+Phone: {{ template_generator.getPhoneNumber() }}
+
+
+
+
+
+The Seller hereby conveys to the Buyer full ownership and title to the motor vehicle described below:
+Description of Motor Vehicle Sold:
+Year {{ template_generator.getYear() }} Make {{ template_generator.getWord() }} Model {{ template_generator.getWord() }}
+VIN: _______________________________________________
+The Buyer hereby agrees to pay the Seller ${{ template_generator.getMoneyAmount() }} on {{ template_generator.getDate() }}, and ${{ template_generator.getMoneyAmount() }} on the {{ template_generator.getInt(1, 28) }}th day of each month beginning {{ template_generator.getDate() }}, until all payments made to the Seller total ${{ template_generator.getMoneyAmount() }}.
+If Buyer fails to make a payment on or before its due date, a late fee of $X shall be added to the balance due and shall be payable immediately.
+Both parties hereby agree that this is an "as-is" sale, with no warranties of any kind expressed or implied.
+This agreement shall be governed by the laws of the State of {{ template_generator.getState() }} and the County of {{ template_generator.getWord() }} and any applicable U. S. laws.
+The parties hereby signify their agreement to the terms above by their signatures affixed below:
+_____________________________________
+Buyer's signature, date
+_________________________________
+Seller's signature, date

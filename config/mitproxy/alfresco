@@ -1,0 +1,69 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Enterprise index-jsp placeholder -->
+
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+   <title>Alfresco</title>
+   <link rel="stylesheet" type="text/css" href="./css/reset.css" />
+   <link rel="stylesheet" type="text/css" href="./css/alfresco.css" />
+</head>
+<body>
+   <div class="sticky-wrapper">
+      <div class="index">
+         
+         <div class="title">
+            <span class="logo"><a href="http://www.alfresco.com"><img src="./images/logo/logo.png" width="145" height="48" alt="" border="0" /></a></span>
+            <span class="logo-separator">&nbsp;</span>
+            <h1>Welcome to Alfresco</h1>
+         </div>
+         
+         <div class="index-list">
+            <h4>Enterprise&nbsp;-&nbsp;7.0.0 (r901fc4aa-blocal)</h4>
+            <p></p>
+            <p><a href="http://docs.alfresco.com/">Online Documentation</a></p>
+            <p></p>
+             
+                <p><a href="http://localhost:8080/share">Alfresco Share</a></p>
+                <p></p>
+             
+            <p><a href="./webdav">Alfresco WebDav</a></p>
+            <p></p>
+            <p><a href="./s/index">Alfresco WebScripts Home</a> (admin only - INTERNAL)</p>
+            <p></p>
+            <p><a href="http://alfresco:9999/api-explorer">Alfresco API Explorer</a></p>
+
+            <p><a href="./s/enterprise/admin">Alfresco Administration Console</a> (admin only)</p>
+            <p></p>
+            <p><a href="http://support.alfresco.com">Alfresco Support</a></p>
+
+            <p></p>
+            <p><a href="./api/-default-/public/cmis/versions/1.0/atom">CMIS 1.0 AtomPub Service Document</a></p>
+            <p><a href="./cmisws/cmis?wsdl">CMIS 1.0 Web Services WSDL Document</a></p>
+            <p><a href="./api/-default-/public/cmis/versions/1.1/atom">CMIS 1.1 AtomPub Service Document</a></p>
+            <p><a href="./api/-default-/public/cmis/versions/1.1/browser">CMIS 1.1 Browser Binding URL</a></p>
+         </div>
+         
+      </div>
+      <div class="push"></div>
+   </div>
+   <div class="footer">
+       Alfresco Software, Inc. &copy; 2005-2021 All rights reserved.
+   </div>
+</body>
+</html>
