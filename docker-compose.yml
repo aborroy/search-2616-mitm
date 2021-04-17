@@ -52,11 +52,6 @@ services:
                 -XX:+UseG1GC -XX:+UseStringDeduplication
                 -Dgoogledocs.enabled=false
                 -Xms4096m -Xmx4096m
-                -Ds3.accessKey=${S3_ACCESS_KEY}
-                -Ds3.secretKey=${S3_SECRET_KEY}
-                -Ds3.bucketName=${S3_BUCKET_NAME}
-                -Ds3.bucketLocation=${S3_BUCKET_LOCATION}
-                -Dconnector.s3.objectNamePrefix=${S3_OBJECT_NAME_PREFIX}
                 -DcontentPropertyRestrictions.enabled=false
                 -Dbulk.object.default.batch_size=25
                 -Dbulk.object.default.pool_size=4
@@ -156,15 +151,15 @@ services:
             - 61616:61616 # OpenWire
             - 61613:61613 # STOM
 
-    # alfresco-proxy:
-    #     image: mitmproxy/mitmproxy
-    #     depends_on:
-    #         - alfresco
-    #     command: "
-    #         mitmdump -s /tmp/send_response.py --mode reverse:http://alfresco:9999/ \
-    #                  --set termlog_verbosity=error --set flow_detail=0
-    #         "
-    #     environment:
-    #         REPO_URL: alfresco
-    #     volumes:
-    #         - ./config/mitproxy:/tmp
+    alfresco-proxy:
+        image: mitmproxy/mitmproxy
+        depends_on:
+            - alfresco
+        command: "
+            mitmdump -s /tmp/send_response.py --mode reverse:http://alfresco:9999/ \
+                     --set termlog_verbosity=error --set flow_detail=0
+            "
+        environment:
+            REPO_URL: alfresco
+        volumes:
+            - ./config/mitproxy:/tmp

@@ -2,7 +2,7 @@
 
 This project includes a Docker Compose template to deploy:
 
-* Alfresco Repository using S3 for storage
+* Alfresco Repository
 * Search Services 1.4.3
 * Search Services 2.0.1
 
@@ -14,7 +14,7 @@ The `alfresco-proxy` Docker service intercepts requests to get Metadata and Cont
 
 ## Starting the project
 
-Review the configuration file in order to add S3 credentials and Docker Image release tags.
+Review the configuration file in order to set Docker Image release tags.
 
 ```
 $ cat .env
@@ -31,14 +31,7 @@ ACTIVEMQ_TAG=5.16.1
 
 # Server properties
 SERVER_NAME=localhost
-
-# S3 Repository Bucket for alf_data folder
-S3_ACCESS_KEY=<S3_ACCESS_KEY>
-S3_SECRET_KEY=<S3_SECRET_KEY>
-S3_BUCKET_NAME=search-services-search-2616
-S3_BUCKET_LOCATION=eu-west-1
-S3_OBJECT_NAME_PREFIX=alf-data/
-```
+```  
 
 Start Docker Compose from project path.
 
