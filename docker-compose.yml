@@ -32,7 +32,7 @@ services:
                 -Dsolr.port=8983
                 -Dsolr.secureComms=none
                 -Dsolr.baseUrl=/solr
-                -Dindex.subsystem.name=noindex
+                -Dindex.subsystem.name=solr6
                 -Dalfresco.host=${SERVER_NAME}
                 -Dalfresco.port=8080
                 -Dalfresco.protocol=http
@@ -60,6 +60,7 @@ services:
                 -XX:MinRAMPercentage=50 -XX:MaxRAMPercentage=80
             "
         volumes:
+            - ./data/alf-repo-data:/usr/local/tomcat/alf_data
             - ./logs/alfresco:/usr/local/tomcat/logs
         ports:
             - 8080:9999
@@ -89,58 +90,58 @@ services:
             - ./data/postgres-data:/var/lib/postgresql/data
             - ./logs/postgres:/var/log/postgresql
 
-    # solr6:
-    #     build:
-    #       context: ./search
-    #       args:
-    #         SEARCH_TAG: 2.0.0
-    #         SOLR_HOSTNAME: solr6
-    #         ALFRESCO_HOSTNAME: alfresco-proxy
-    #         ALFRESCO_COMMS: none
-    #     mem_limit: 1024m
-    #     depends_on:
-    #         - alfresco
-    #     environment:
-    #         #Solr needs to know how to register itself with Alfresco
-    #         SOLR_ALFRESCO_HOST: "alfresco-proxy"
-    #         SOLR_ALFRESCO_PORT: "8080"
-    #         #Alfresco needs to know how to call solr
-    #         SOLR_SOLR_HOST: "solr6"
-    #         SOLR_SOLR_PORT: "8983"
-    #         #Create the default alfresco and archive cores
-    #         SOLR_CREATE_ALFRESCO_DEFAULTS: "alfresco"
-    #         SOLR_JAVA_MEM: "-Xms1024m -Xmx1024m"
-    #     volumes:
-    #         - ./data/solr-data-200:/opt/alfresco-search-services/data
-    #     ports:
-    #         - 8092:8983
+    solr6:
+        build:
+          context: ./search
+          args:
+            SEARCH_TAG: 2.0.0
+            SOLR_HOSTNAME: solr6
+            ALFRESCO_HOSTNAME: alfresco-proxy
+            ALFRESCO_COMMS: none
+        mem_limit: 2048m
+        depends_on:
+            - alfresco
+        environment:
+            #Solr needs to know how to register itself with Alfresco
+            SOLR_ALFRESCO_HOST: "alfresco-proxy"
+            SOLR_ALFRESCO_PORT: "8080"
+            #Alfresco needs to know how to call solr
+            SOLR_SOLR_HOST: "solr6"
+            SOLR_SOLR_PORT: "8983"
+            #Create the default alfresco and archive cores
+            SOLR_CREATE_ALFRESCO_DEFAULTS: "alfresco"
+            SOLR_JAVA_MEM: "-Xms2048m -Xmx2048m"
+        volumes:
+            - ./data/solr-data-200:/opt/alfresco-search-services/data
+        ports:
+            - 8092:8983
 
-    # solr614:
-    #     build:
-    #       context: ./search
-    #       args:
-    #         SEARCH_TAG: 1.4.3.3
-    #         SOLR_HOSTNAME: solr614
-    #         ALFRESCO_HOSTNAME: alfresco-proxy
-    #         ALFRESCO_COMMS: none
-    #     mem_limit: 384m
-    #     depends_on:
-    #         - alfresco
-    #     environment:
-    #         #Solr needs to know how to register itself with Alfresco
-    #         SOLR_ALFRESCO_HOST: "alfresco-proxy"
-    #         SOLR_ALFRESCO_PORT: "8080"
-    #         #Alfresco needs to know how to call solr
-    #         SOLR_SOLR_HOST: "solr614"
-    #         SOLR_SOLR_PORT: "8983"
-    #         #Create the default alfresco and archive cores
-    #         SOLR_CREATE_ALFRESCO_DEFAULTS: "alfresco"
-    #         SOLR_JAVA_MEM: "-Xms384m -Xmx384m"
-    #     volumes:
-    #         - ./data/solr-data-14/data:/opt/alfresco-search-services/data
-    #         - ./data/solr-data-14/contenstore:/opt/alfresco-search-services/contentstore
-    #     ports:
-    #         - 8091:8983
+    solr614:
+        build:
+          context: ./search
+          args:
+            SEARCH_TAG: 1.4.3.3
+            SOLR_HOSTNAME: solr614
+            ALFRESCO_HOSTNAME: alfresco-proxy
+            ALFRESCO_COMMS: none
+        mem_limit: 384m
+        depends_on:
+            - alfresco
+        environment:
+            #Solr needs to know how to register itself with Alfresco
+            SOLR_ALFRESCO_HOST: "alfresco-proxy"
+            SOLR_ALFRESCO_PORT: "8080"
+            #Alfresco needs to know how to call solr
+            SOLR_SOLR_HOST: "solr614"
+            SOLR_SOLR_PORT: "8983"
+            #Create the default alfresco and archive cores
+            SOLR_CREATE_ALFRESCO_DEFAULTS: "alfresco"
+            SOLR_JAVA_MEM: "-Xms384m -Xmx384m"
+        volumes:
+            - ./data/solr-data-14/data:/opt/alfresco-search-services/data
+            - ./data/solr-data-14/contenstore:/opt/alfresco-search-services/contentstore
+        ports:
+            - 8091:8983
 
     activemq:
         image: alfresco/alfresco-activemq:${ACTIVEMQ_TAG}
