@@ -98,7 +98,7 @@ services:
             SOLR_HOSTNAME: solr6
             ALFRESCO_HOSTNAME: alfresco-proxy
             ALFRESCO_COMMS: none
-        mem_limit: 2048m
+        mem_limit: 384m
         depends_on:
             - alfresco
         environment:
@@ -110,7 +110,7 @@ services:
             SOLR_SOLR_PORT: "8983"
             #Create the default alfresco and archive cores
             SOLR_CREATE_ALFRESCO_DEFAULTS: "alfresco"
-            SOLR_JAVA_MEM: "-Xms2048m -Xmx2048m"
+            SOLR_JAVA_MEM: "-Xms384m -Xmx384m"
         volumes:
             - ./data/solr-data-201:/opt/alfresco-search-services/data
         ports:
@@ -124,7 +124,7 @@ services:
             SOLR_HOSTNAME: solr614
             ALFRESCO_HOSTNAME: alfresco-proxy
             ALFRESCO_COMMS: none
-        mem_limit: 2048m
+        mem_limit: 512m
         depends_on:
             - alfresco
         environment:
@@ -136,7 +136,7 @@ services:
             SOLR_SOLR_PORT: "8983"
             #Create the default alfresco and archive cores
             SOLR_CREATE_ALFRESCO_DEFAULTS: "alfresco"
-            SOLR_JAVA_MEM: "-Xms2048m -Xmx2048m"
+            SOLR_JAVA_MEM: "-Xms512m -Xmx512m"
         volumes:
             - ./data/solr-data-14/data:/opt/alfresco-search-services/data
             - ./data/solr-data-14/contenstore:/opt/alfresco-search-services/contentstore
@@ -153,6 +153,30 @@ services:
             - 61613:61613 # STOM
 
     alfresco-proxy:
+        image: nginx:stable-alpine
+        depends_on:
+            - alfresco
+            - alfresco-proxy-1
+            - alfresco-proxy-2
+        environment:
+            NGINX_ENTRYPOINT_QUIET_LOGS: 1
+        volumes:
+            - ./config/nginx.conf:/etc/nginx/nginx.conf
+
+    alfresco-proxy-1:
+        image: mitmproxy/mitmproxy
+        depends_on:
+            - alfresco
+        command: "
+            mitmdump -s /tmp/send_response.py --mode reverse:http://alfresco:9999/ \
+                     --set termlog_verbosity=error --set flow_detail=0
+            "
+        environment:
+            REPO_URL: alfresco
+        volumes:
+            - ./config/mitproxy:/tmp
+
+    alfresco-proxy-2:
         image: mitmproxy/mitmproxy
         depends_on:
             - alfresco
